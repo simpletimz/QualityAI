@@ -137,8 +137,6 @@ User opens QualityAI
         test the results display
 
 
-
-
 # QualityAI — Test Scenarios
 
 ## Document Information
