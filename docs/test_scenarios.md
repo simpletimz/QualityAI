@@ -1,6 +1,7 @@
 # Using the Three Mental Model Techniques
 
 # MODEL 1-- WHAT WHO HOW WHEN
+```text
  1. WHAT could go wrong?
    │
    ├── AI generates test cases
@@ -77,7 +78,7 @@
        at edge of its knowledge
        unfamiliar technology stack
        described in the prompt
-
+```
 
 # BOUNDARY THINKING
 The exact limit         → what happens at exactly 100 characters
@@ -90,6 +91,7 @@ Special characters      → quotes, slashes, emoji, spaces
 Different languages     → Arabic, Chinese, French input
 
 AI prompt boundaries
+```text
 ├── Empty prompt          → what happens?
 ├── One word prompt       → too vague to work?
 ├── 10000 word prompt     → too long, what happens?
@@ -98,9 +100,10 @@ AI prompt boundaries
 ├── Prompt with HTML      → XSS attempt
 └── Prompt asking AI      → to ignore its instructions
     to do something bad     prompt injection attack
-
+```
 
 # USER JOURNEY MAP
+```text
 User opens QualityAI
 │
 ├── Sees login or dashboard?
@@ -135,11 +138,12 @@ User opens QualityAI
     └── where do results appear?
         how are failures shown?
         test the results display
-
+```
 
 # QualityAI — Test Scenarios
 
 ## Document Information
+```text
 | Field | Details |
 |---|---|
 | Project | QualityAI |
@@ -148,8 +152,7 @@ User opens QualityAI
 | Author | Moses |
 | Date | 2026-05-29 |
 | Status | Active |
-
----
+```
 
 ## Testing Mental Model Applied
 This document follows the Universal Seven Layer Testing Model:
@@ -172,12 +175,14 @@ Each scenario answers four questions:
 ## Layer 1 — Access
 
 ### TS-001 — Successful login with valid credentials
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-001 |
 | Layer | 1 — Access |
 | Priority | Critical |
 | User | All users |
+```
 
 **WHAT** Valid credentials rejected, user cannot enter system.
 **WHO** Every user. Login failure blocks all functionality.
@@ -193,12 +198,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-002 — Login rejected with invalid credentials
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-002 |
 | Layer | 1 — Access |
 | Priority | Critical |
 | User | All users |
+```
 
 **WHAT** Invalid credentials accepted, unauthorized access granted.
 **WHO** Every user and the business. Security breach if this fails.
@@ -211,15 +218,16 @@ Each scenario answers four questions:
 - Verify error message does not reveal which field is wrong
 - Verify user stays on login page after failed attempt
 
----
 
 ### TS-003 — Login rejected with empty fields
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-003 |
 | Layer | 1 — Access |
 | Priority | High |
 | User | All users |
+```
 
 **WHAT** Empty form submitted, system crashes or accepts blank input.
 **WHO** All users. Poor validation frustrates legitimate users.
@@ -235,12 +243,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-004 — Session persists correctly after page refresh
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-004 |
 | Layer | 1 — Access |
 | Priority | High |
 | User | All users |
+```
 
 **WHAT** Session lost on refresh, user forced to login repeatedly.
 **WHO** All active users. Poor session management destroys usability.
@@ -256,12 +266,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-005 — Session expires after inactivity timeout
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-005 |
 | Layer | 1 — Access |
 | Priority | High |
 | User | All users — security requirement |
+ ```
 
 **WHAT** Session never expires, leaving accounts vulnerable indefinitely.
 **WHO** All users. Permanent sessions are a serious security risk.
@@ -279,12 +291,14 @@ Each scenario answers four questions:
 ## Layer 2 — Movement
 
 ### TS-006 — Dashboard loads completely after login
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-006 |
 | Layer | 2 — Movement |
 | Priority | Critical |
 | User | All users |
+```
 
 **WHAT** Dashboard loads blank, broken, or partially.
 **WHO** All users. Broken dashboard blocks all navigation.
@@ -300,12 +314,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-007 — All navigation menu items accessible
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-007 |
 | Layer | 2 — Movement |
 | Priority | High |
 | User | All users |
+```
 
 **WHAT** Menu items missing, broken, or leading to wrong pages.
 **WHO** All users. Broken navigation makes features unreachable.
@@ -321,12 +337,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-008 — Invalid URL shows appropriate error page
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-008 |
 | Layer | 2 — Movement |
 | Priority | Medium |
 | User | All users |
+```
 
 **WHAT** Invalid URL crashes system or exposes sensitive error details.
 **WHO** All users and security team. Stack traces expose system internals.
@@ -344,12 +362,14 @@ Each scenario answers four questions:
 ## Layer 3 — Core Features
 
 ### TS-009 — AI generates test cases from feature description
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-009 |
 | Layer | 3 — Core Features |
 | Priority | Critical |
 | User | SDET Engineer |
+```
 
 **WHAT** AI generates nothing, wrong content, or broken syntax.
 **WHO** SDET engineers. Core value of QualityAI destroyed if this fails.
@@ -366,12 +386,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-010 — AI generated test cases are executable
+```text
 | Field | Details |
 |---|---|
 | Scenario ID | TS-010 |
 | Layer | 3 — Core Features |
 | Priority | Critical |
 | User | SDET Engineer |
+```
 
 **WHAT** Generated tests look valid but fail to execute.
 **WHO** SDET engineers waste time debugging AI output.
@@ -387,12 +409,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-011 — RAG pipeline answers questions from uploaded documents
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-011 |
 | Layer | 3 — Core Features |
 | Priority | High |
 | User | SDET Engineer, QA Manager |
+```
 
 **WHAT** RAG returns wrong answers, ignores document, or hallucinates.
 **WHO** Anyone relying on document Q&A for accurate information.
@@ -408,12 +432,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-012 — Bug analyzer identifies patterns in test failures
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-012 |
 | Layer | 3 — Core Features |
 | Priority | High |
 | User | SDET Engineer, QA Manager |
+```
 
 **WHAT** Analyzer misidentifies patterns or produces no insights.
 **WHO** QA teams making decisions based on incorrect analysis.
@@ -431,12 +457,14 @@ Each scenario answers four questions:
 ## Layer 4 — Data
 
 ### TS-013 — Generated test cases save and persist correctly
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-013 |
 | Layer | 4 — Data |
 | Priority | High |
 | User | SDET Engineer |
+```
 
 **WHAT** Generated tests lost after save. Data corrupted on storage.
 **WHO** Engineers lose work. Must regenerate wasting time.
@@ -452,12 +480,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-014 — Data deleted completely when user requests deletion
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-014 |
 | Layer | 4 — Data |
 | Priority | High |
 | User | All users |
+```
 
 **WHAT** Deleted data still accessible or partially remaining.
 **WHO** All users. Privacy violation if deleted data persists.
@@ -475,12 +505,14 @@ Each scenario answers four questions:
 ## Layer 5 — Connections
 
 ### TS-015 — Ollama responds within acceptable timeout
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-015 |
 | Layer | 5 — Connections |
 | Priority | Critical |
 | User | All users |
+```
 
 **WHAT** Ollama unresponsive. System hangs indefinitely waiting.
 **WHO** All users. Unresponsive system feels broken.
@@ -496,12 +528,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-016 — Jenkins pipeline triggers and runs tests automatically
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-016 |
 | Layer | 5 — Connections |
 | Priority | High |
 | User | SDET Engineer, Development Team |
+```
 
 **WHAT** Jenkins does not trigger. Tests do not run automatically.
 **WHO** Development team. Manual testing required defeating CI/CD purpose.
@@ -517,12 +551,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-017 — System recovers gracefully from database connection loss
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-017 |
 | Layer | 5 — Connections |
 | Priority | High |
 | User | All users |
+```
 
 **WHAT** Database drops. System crashes with no recovery.
 **WHO** All active users lose work. System requires manual restart.
@@ -540,12 +576,14 @@ Each scenario answers four questions:
 ## Layer 6 — Boundaries
 
 ### TS-018 — Empty prompt handled gracefully
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-018 |
 | Layer | 6 — Boundaries |
 | Priority | High |
 | User | SDET Engineer |
+```
 
 **WHAT** Empty prompt crashes AI engine or returns confusing output.
 **WHO** Engineers accidentally submitting empty forms.
@@ -561,12 +599,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-019 — Extremely long prompt handled without system failure
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-019 |
 | Layer | 6 — Boundaries |
 | Priority | High |
 | User | SDET Engineer |
+```
 
 **WHAT** Very long prompt crashes system or exhausts memory.
 **WHO** Engineers pasting large requirement documents as prompts.
@@ -582,12 +622,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-020 — Special characters in prompt handled safely
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-020 |
 | Layer | 6 — Boundaries |
 | Priority | Critical |
 | User | SDET Engineer — Security |
+```
 
 **WHAT** Special characters cause injection attacks or system errors.
 **WHO** All users. Security risk if injection succeeds.
@@ -603,12 +645,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-021 — Concurrent users handled without data leakage
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-021 |
 | Layer | 6 — Boundaries |
 | Priority | Critical |
 | User | All users — Privacy |
+```
 
 **WHAT** User A sees User B session data. Cross session contamination.
 **WHO** All users. Catastrophic privacy violation.
@@ -626,12 +670,14 @@ Each scenario answers four questions:
 ## Layer 7 — Quality
 
 ### TS-022 — System operates completely offline
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-022 |
 | Layer | 7 — Quality |
 | Priority | Critical |
 | User | All users — Core requirement |
+```
 
 **WHAT** System phones home. Features fail without internet.
 **WHO** All users especially in air gapped environments.
@@ -647,12 +693,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-023 — AI response time meets performance benchmark
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-023 |
 | Layer | 7 — Quality |
 | Priority | High |
 | User | All users |
+```
 
 **WHAT** AI response too slow. Users abandon tool.
 **WHO** All users. Slow tools get replaced.
@@ -668,12 +716,14 @@ Each scenario answers four questions:
 ---
 
 ### TS-024 — System runs stably for extended period
+```
 | Field | Details |
 |---|---|
 | Scenario ID | TS-024 |
 | Layer | 7 — Quality |
 | Priority | High |
 | User | All users |
+```
 
 **WHAT** Memory leak causes system to slow down and crash over time.
 **WHO** All users. Unreliable system cannot be trusted.
@@ -689,7 +739,7 @@ Each scenario answers four questions:
 ---
 
 ## Scenario Summary
-
+```
 | Layer | Scenarios | Count |
 |---|---|---|
 | Layer 1 Access | TS-001 to TS-005 | 5 |
@@ -700,13 +750,13 @@ Each scenario answers four questions:
 | Layer 6 Boundaries | TS-018 to TS-021 | 4 |
 | Layer 7 Quality | TS-022 to TS-024 | 3 |
 | **Total** | | **24** |
-
+```
 ---
 
 ## Traceability
 
 Every scenario traces back to a business driver:
-
+```
 | Business Driver | Covered By |
 |---|---|
 | Privacy and confidentiality | TS-021, TS-022 |
@@ -716,3 +766,4 @@ Every scenario traces back to a business driver:
 | Security | TS-002, TS-005, TS-020, TS-021 |
 | Performance | TS-023, TS-024 |
 | Usability | TS-003, TS-006, TS-007, TS-008 |
+```
