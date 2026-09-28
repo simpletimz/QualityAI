@@ -44,6 +44,7 @@ Manual software testing is slow, inconsistent, and cannot scale with modern deve
 | Containerization | Docker |
 
 ## Project Structure
+```text
 QualityAI/
 ├── ai_engine/
 │   ├── test_generator/     → AI generates test cases
@@ -62,6 +63,7 @@ QualityAI/
 ├── LICENSE
 ├── README.md
 └── requirements.txt
+```
 
 ## Installation
 ```bash
