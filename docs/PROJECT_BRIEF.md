@@ -1,5 +1,5 @@
 # Author
-**Moses Opaleye** — SDET Engineer and AI/ML Developer  
+**Moses Opaleye** — RESEARCH ENGINEER
 GitHub: [@SimpleTimz](https://github.com/SimpleTimz)  
 Project: [QualityAI](https://github.com/SimpleTimz/QualityAI)
 
