@@ -1,7 +1,5 @@
 # Author
 **Moses Opaleye** — RESEARCH ENGINEER
-GitHub: [@SimpleTimz](https://github.com/SimpleTimz)  
-Project: [QualityAI](https://github.com/SimpleTimz/QualityAI)
 
 # QualityAI — Project Brief
 
